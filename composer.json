@@ -1,0 +1,15 @@
+{
+    "name": "RenanPalmeira/agil-framework",
+    "description": "It is a PHP micro-framework that helps you quickly write web applications in a simple and agile manner.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Renan Palmeira",
+            "email": "renanpalmeira1@hotmail.com"
+        },
+        {
+            "name": "Wellington Eugenio",
+            "email": "wellington30071997@gmail.com"
+        }
+    ]
+}
