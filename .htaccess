@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+
+	RewriteEngine On
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+
+	RewriteRule ^estatico/([a-z\\\/\.]+)$ estatico/$1
+
+</IfModule>

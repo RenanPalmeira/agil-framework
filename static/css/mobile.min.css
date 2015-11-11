@@ -1,0 +1,356 @@
+@charset "UTF-8";
+
+/* tablet */
+@media screen and (min-width: 600px) and (max-width: 920px) { 
+	.col-triplet, .col-6, .col-9, .col-10, .col-11, .col-12{
+		width: 100%!important;
+	}
+	.mobile-hidden{
+		display: none;
+	}
+	.header{
+		height: auto;
+	}
+	.paper .paper-image{
+		height: 150px;
+		width: 80%;
+	}
+
+	.quote{
+		padding-left: 20px;
+		padding-right: 20px;
+		line-height: 40px;
+	}
+	.quote p{
+		padding-bottom: 5%;
+		font-size: 18px;
+		text-align: center;	
+	}
+	.quote p::before{
+		content: '';
+	}
+	.quote p::after{
+		content: '';
+	}
+	
+	.app{
+		height: auto;
+		left: 0px;
+		margin: 10% auto;
+		min-height: inherit;
+		overflow: visible!important;
+		width: 100%;
+	}
+	.app-body{
+		overflow: visible!important;
+	}
+	.app-pane > .app-pane-header{
+		width: 100%;
+		padding: 5px;
+		position: static;
+	}
+	.app-mobile-show{
+		display: block;
+	}
+	.app-navigation .navbar-toggle{
+		display: block!important;
+	}
+	.navbar-vertical{
+		background: #2e353b!important;
+		width: 100%!important;
+		top: 19%!important;
+		height: auto!important;
+	}
+	.navbar-vertical .brand{
+		display: none;
+	}
+	.navbar.navbar-vertical .nav.nav-app{
+		margin-top: 4%;
+	}
+	.navbar-vertical .nav ul li img{
+		display: none;
+	}
+	.navbar.navbar-vertical .nav ul{
+		margin: -44px auto;
+	}
+	.navbar-vertical .nav.nav-app ul li{
+		background: #3e474f;
+		padding-left: 20px;
+		width: 96.6%;
+		height: 100%;
+	}
+	.navbar-vertical .nav.nav-app ul li:last-child{
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+	.navbar-vertical .nav.nav-app ul li:hover{
+		background: #2e353b;
+	}
+	.navbar-vertical .nav.nav-app ul li span {
+		background: transparent;
+		border-radius: 5px;
+		color: #fff;
+		left: 0px;
+		line-height: 50px;
+		margin-top: 0px;
+		opacity: 1;
+		padding: 0px;
+		position: relative;
+		visibility: visible;
+	}
+	.navbar .nav.nav-app ul li span:after{
+		display: none;
+	}
+	.mobile-hidden, .nav-toggle{
+		display: none!important;
+	}
+	.app-navigation .nav{
+		margin-top: -6%;
+	}
+	.app-navigation .navbar-toggle{
+		margin-top: -4.5%;
+	}
+	.navbar.navbar-vertical.fixed-left {
+		position: absolute;
+		bottom: inherit;
+	}
+	.app-pane .app-pane-header{
+		width: 98.8%;
+	}
+	.app-pane-header > .col-6{
+		width: 40%!important;
+	}
+	.app-pane .app-pane-body{
+		height: auto;
+	}
+}
+
+/* phone */
+@media screen and (max-width: 700px) { 
+	.col-triplet, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8,
+	.col-9, .col-10, .col-11, .col-12{
+		width: 100%!important;
+	}
+	.header{
+		height: auto;
+	}
+	.bleed img{
+		width: 40px;
+		margin-top: -10px;
+	}
+	.navbar-toggle{
+		display: block!important;
+	}
+	.navbar .bleed{
+		padding-left: 0px!important;
+	}
+	.mobile-hidden, .nav-toggle{
+		display: none!important;
+	}
+	.navbar .nav{
+		width: 100%;
+		left: 0px;
+		margin-top: 50px;
+		position: absolute;
+		-webkit-transition: .5s;
+		-moz-transition: .5s;
+		-ms-transition: .5s;
+		-o-transition: .5s;	
+		transition: .5s;
+		right: 0px;
+	}
+	.navbar-vertical{
+		width: 100%!important;
+		top: 75px!important;
+		height: 100%!important;
+	}
+	.navbar-vertical .brand{
+		display: none;
+	}
+	.navbar-vertical .nav ul li img{
+		display: none;
+	}
+	.navbar-vertical .nav.nav-app ul li{
+		padding-left: 20px;
+		width: 100%;
+		height: 100%;
+	}
+	.navbar.navbar-vertical .nav.nav-app{
+		margin-top: -28px;
+		position: relative;
+	}
+	.navbar .nav ul{
+		float: none!important;
+		width: 100%!important;
+	}
+	
+	.navbar .nav ul li{
+		background: rgba(0, 0, 0, .9);
+		cursor: pointer;
+		display: block;
+		padding: 0px 10px 0px 10px;
+		line-height: 50px;
+		width: 100%!important;
+		z-index: 999;
+	}
+	.navbar.navbar-vertical .nav ul li{
+		color: #fff;
+		padding-left: 10px!important;
+		line-height: 10px;
+		margin-top: 0px;
+		opacity: 1;
+		padding: 0px;
+		position: relative;
+		visibility: visible;
+		width: 98.5%!important;
+	}
+	.navbar.navbar-vertical .nav ul li:hover{
+		background: #2e353b!important;
+	}
+
+	.navbar .nav ul li:last-child{
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+
+	.navbar.navbar-vertical .nav.nav-app ul li:last-child{
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+	.navbar.navbar-vertical .nav.nav-app ul li span {
+		background: transparent;
+		border-radius: 5px;
+		color: #fff;
+		left: 0px;
+		line-height: 50px;
+		margin-top: 0px;
+		opacity: 1;
+		padding: 0px;
+		position: relative;
+		visibility: visible;
+	}
+	.navbar .nav.nav-app ul li span:after{
+		display: none;
+	}
+	.header .container{
+		padding-top: 13%;
+	}
+
+	.header h1{
+		font-size: 38px;
+	}
+	.header-logo{
+		padding-bottom: 1%!important;
+		padding-top: 5%!important;
+		width: 40%;
+	}
+	.header .btn{
+		margin-bottom: 7px;
+		margin-top: 7px;
+		width:300px;
+	}
+
+	.jumbotron h1{
+		margin-top: -4%;
+		font-size: 38px;
+	}
+	.jumbotron a.btn{
+		margin-top: -50%!important;
+	}
+	.quote{
+		padding-left: 20px;
+		padding-right: 20px;
+		line-height: 40px;
+	}
+	.quote p{
+		padding-bottom: 1%;
+		font-size: 12px;
+		text-align: center;	
+	}
+	.quote p::before{
+		content: '';
+	}
+	.quote p::after{
+		content: '';
+	}
+
+	.content{
+		padding-bottom: 5%;
+		padding-top: 5%;
+	}
+	.paper.three, .paper.four{
+		width: 100%;
+	}
+	.paper .paper-image{
+		height: 100px;
+		float: left;
+		padding-top: 2%;
+		width: 40%;
+	}
+	.paper .paper-content{
+		float: left;
+		width: 50%;
+	}
+	.footer{
+		min-height: 80px;
+	}
+
+	.footer ul{
+		list-style: none;
+		margin: 25px auto 25px;
+	}
+	.footer ul > li{
+		display: inline-block;
+		margin: 0 3px;
+	}
+
+	.modal-dialog .modal-content{
+		width: 90%!important;
+	}
+
+	.fancy-modal{
+		top: -400%;
+	}
+	.fancy-modal .btn{
+		width: 100%!important;
+		margin-bottom: 0px;
+	}
+
+	.navbar.navbar-vertical.fixed-left{
+		position: absolute;
+	}
+	.app{
+		border-top-right-radius: 0px;
+		border-top-left-radius: 0px;
+		left: 0px;
+		width: 100%;
+		height: auto;
+		min-height: inherit!important;
+		bottom: 0px;
+	}
+	.app-body{
+		overflow-y: visible!important;
+	}
+	.app-navigation{
+		left: 0px;
+		padding-left: 0%;
+		width: 100%;
+	}
+	.app-navigation .nav{
+		margin-top: 2%;
+	}
+	.app-pane .app-pane-header{
+		width: 98.5%;
+		padding-top: .5%;
+		padding-bottom: .5%;
+	}
+	.app-pane .app-pane-header .col-6{
+		margin-left: -10px;
+	}
+	.app-pane-header > .col-6{
+		width: 50%!important;
+	}
+	.app-pane .app-pane-body{
+		height: auto;
+	}
+}

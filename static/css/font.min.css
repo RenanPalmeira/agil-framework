@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/LatoLatin-Regular.eot');
+    src: url('../fonts/LatoLatin-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/LatoLatin-Regular.woff') format('woff'),
+         url('../fonts/LatoLatin-Regular.ttf') format('truetype'); 
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: local('Open Sans Light'), local('OpenSans-Light'), url('../fonts/Open-Sans.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Ubuntu';
+	src: local('Ubuntu'), url('../fonts/Ubuntu-Regular.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: local('Roboto'), url('../fonts/Roboto-Regular.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 400;
+}

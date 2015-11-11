@@ -1,0 +1,14 @@
+tcc_base/
+*.db
+*sqlite*
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+*.lock
+*.conf
+media/*
+*.sql
+tags
+.benchignore
+*.sublime*
