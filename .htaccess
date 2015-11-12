@@ -2,8 +2,11 @@
 
 	RewriteEngine On
 
-	RewriteCond %{REQUEST_FILENAME} !-f
-
-	RewriteRule ^estatico/([a-z\\\/\.]+)$ estatico/$1
-
+	RewriteRule ^app/([a-z]+)/view/(.*)$ app/$1/view.php?response=$2 [L]
+	
+	RewriteRule ^app/([a-z]+)/(.*)/$ app/$1/$2.php [L]
+	RewriteRule ^app/([a-z]+)/$ app/$1/templates/index.php [L]
+	RewriteRule ^([a-z\/]+)/$ public/layout/tab.php?p=$1 [L]
+	RewriteRule ^static/$ public/layout/footer.php [L]
+	RewriteRule ^$ public/index.php [L]
 </IfModule>
