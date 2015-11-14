@@ -10,7 +10,7 @@
 		<button class="close" onclick="boss.removeClass('modal_dialog', 'active')">x</button>
 		<h3 class="modal-title font-open-sans">Alterar foto do projeto</h3>
 	</div>
-	<form id="form" action="/app/project/project_image/?pk=<?php echo $request['pk'];?>" method="POST"  enctype="multipart/form-data" target="compiler">
+	<form id="form" action="/app/project/project_image/?pk=<?php echo $request['pk'];?>" method="POST"  enctype="multipart/form-data" target="iframesubmit">
 		<div class="modal-body">
 			<div class="container">
 				<div class="form-group">

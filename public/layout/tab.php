@@ -10,7 +10,7 @@
 		$img = $base."static\\img\\things\\".$app.".png";
 	}
 ?>
-<iframe src="" name="compiler" width="0" height="0" style="display: none;"></iframe>
+<iframe src="" name="iframesubmit" width="0" height="0" style="display: none;"></iframe>
 <div class="jumbotron jumbotron-big bg-azure-light bg-dots">
 	<div id="navbar" class="navbar fixed-top font-white">
 		<div class="bleed">

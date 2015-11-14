@@ -13,7 +13,7 @@
 		<div class="col-6 pull-left">
 			<div class="container">
 				<div id="div_user">
-					<form action="/app/account/create/" target="compiler" method="POST">
+					<form action="/app/account/create/" target="iframesubmit" method="POST">
 						<div class="row">
 							<div class="col-12">
 								<input name="name" class="input-requered" placeholder="Nome" type="text" required>

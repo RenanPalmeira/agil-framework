@@ -35,7 +35,7 @@
 ?>
 <div class="container">
 	<div class="col-12">
-		<form action="/app/team/project_member/" method="post" target="compiler">
+		<form action="/app/team/project_member/" method="post" target="iframesubmit">
 			<div class="form-group">
 				<label>Projeto</label>
 				<input type="text" name="name" value="<?php echo $rs['title'];?>" placeholder="Nome do projeto" class="form-control"/>

@@ -12,7 +12,7 @@
 	<div class="app-pane-body">
 		<div class="container">
 			<div class="col-12">
-				<form action="/app/user/update_profile/" method="post" target="compiler">
+				<form action="/app/user/update_profile/" method="post" target="iframesubmit">
 					<div class="form-group">
 						<label>Nome</label>
 						<input type="text" name="name" value="<?php echo $logado['name'];?>" placeholder="Seu Nome" class="form-control"/>

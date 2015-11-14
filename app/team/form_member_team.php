@@ -7,7 +7,7 @@
 	$pk = $request['pk'];
 ?>
 <div class="col-11">
-	<form action="/app/team/member_project_set/" method="post" target="compiler">
+	<form action="/app/team/member_project_set/" method="post" target="iframesubmit">
 		<input type="hidden" name="pk" value="<?php echo $pk?>"/>
 		<div class="form-group">
 			<label>E-Mail</label>

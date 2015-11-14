@@ -3,7 +3,7 @@
 		<div class="col-12 pull-left">
 			<div class="container">
 				<h1 class="font-open-sans title-header text-primary">Entrar em <span class="font-lato">Contato</span></h1>
-				<form id="form_contact" method="POST" action="/app/contact/view/create" target="compiler">
+				<form id="form_contact" method="POST" action="/app/contact/view/create" target="iframesubmit">
 					<div class="form-group">
 						<input name="name" type="text" class="form-control" id="name" placeholder="Nome">
 					</div>

@@ -24,7 +24,7 @@
 		<button class="close" onclick="boss.removeClass('modal_dialog', 'active')">x</button>
 		<h3 class="modal-title font-open-sans">Editar cartão</h3>
 	</div>
-	<form action="/app/task/edit_task/" method="post" target="compiler">
+	<form action="/app/task/edit_task/" method="post" target="iframesubmit">
 		<input type="hidden" id="color" name="color" value="<?php echo $color; ?>">
 		<input type="hidden" id="pk" name="pk" value="<?php echo $pk;?>">
 		<input type="hidden" id="delete" name="delete" value="0">

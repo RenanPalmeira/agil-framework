@@ -26,7 +26,7 @@
 				<button class="close" onclick="boss.removeClass('modal_dialog', 'active')">x</button>
 				<h3 class="modal-title font-open-sans"><?php echo $rs['title']; ?></h3>
 			</div>
-			<form action="/app/team/contribute/" method="post" target="compiler">
+			<form action="/app/team/contribute/" method="post" target="iframesubmit">
 				<div class="modal-body">
 					<div class="container">
 						<?php

@@ -6,7 +6,7 @@
 		<button class="close" onclick="boss.removeClass('modal_dialog', 'active')">x</button>
 		<h3 class="modal-title font-open-sans">Criar novo projeto</h3>
 	</div>
-	<form action="/app/project/create/" method="post" target="compiler">
+	<form action="/app/project/create/" method="post" target="iframesubmit">
 		<div class="modal-body">
 			<div class="container">
 				<div class="form-group">

@@ -12,7 +12,7 @@
 		<button class="close" onclick="boss.removeClass('modal_dialog', 'active')">x</button>
 		<h3 class="modal-title font-open-sans">Adicionar um cartão</h3>
 	</div>
-	<form action="/app/task/create_task/" method="post" target="compiler">
+	<form action="/app/task/create_task/" method="post" target="iframesubmit">
 		<input type="hidden" id="color" name="color" value="default"/>
 		<input type="hidden" id="pk" name="pk" value="<?php echo $pk;?>"/>
 		<div class="modal-body">

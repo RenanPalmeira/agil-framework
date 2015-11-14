@@ -16,4 +16,4 @@
 		<script type="text/javascript" src="/static/js/boss.min.js"></script>
 	</head>
 	<body>
-		<iframe src="" name="compiler" frameborder="0" width="0" heigth="0" style="display:none;"></iframe>
+		<iframe src="" name="iframesubmit" frameborder="0" width="0" heigth="0" style="display:none;"></iframe>
