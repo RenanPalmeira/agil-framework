@@ -6,6 +6,5 @@
 	RewriteRule ^app/([a-z]+)/$ app/$1/templates/index.php [L]
 	RewriteRule ^([a-z\/]+)/$ public/layout/tab.php?p=$1 [L]
 	RewriteRule ^static/$ public/layout/footer.php [L]
-	RewriteRule ^$ public/index.php [L]
-	
+	RewriteRule ^$ public/index.php [L]	
 </IfModule>
