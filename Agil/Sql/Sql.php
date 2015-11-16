@@ -66,7 +66,7 @@ class SQL extends Database {
 				}
 				$campos = implode(', ', $campos);
 				try {
-					$query = "INSERT INTO `{$table}` ({$campos}) VALUES ({$valor_sql})";
+					$query = "INSERT INTO {$table} ({$campos}) VALUES ({$valor_sql})";
 					$rs = $this->pdo->prepare($query);
 					$rs->execute($valores);
 					return true;
