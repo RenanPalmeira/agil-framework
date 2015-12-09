@@ -1,5 +1,18 @@
 <?php
-	require_once('init.php');
+	require_once 'init.php';
+
+	use Agil\Session\Session as Session;
+
+	$logado = Session::get('logado');
+
+	$image = new MemberImage();
+	$i = $image->get(array('id_member'=>$logado['id_member']));
+	$img = "/static/img/icons/user_black.png";
+	if(count($i)>0) {
+		if(array_key_exists('src', $i[0])) {
+			$img = 'media/'.str_replace("\\", "/", $i[0]['src']);
+		}
+	}
 ?>
 <div class="app-pane">
 	<div class="app-pane-header">
@@ -10,7 +23,7 @@
 			<div class="row ">
 				<div class="col-3 pull-left text-center">
 					<div class="row bleed-top">
-						<img src="/static/img/icons/user_black.png" width="150px">
+						<img src="<?php echo $img; ?>" class="img-circle img-border" width="150px">
 					</div>
 					<div class="row bleed-top">
 						<button class="btn btn-primary btn-block" title="Alterar Senha">Alterar senha</button>

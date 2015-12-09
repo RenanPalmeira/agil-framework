@@ -75,6 +75,8 @@ else {
 	?>
 	<script>
 		window.parent.location.href='/';
+		window.parent.iframesubmit.src='';
+		window.parent.boss.popup('Error', 'Preencha todos os campos!');
 	</script>
 	<?php
 }

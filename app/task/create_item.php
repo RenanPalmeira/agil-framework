@@ -56,9 +56,8 @@ if($request['METHOD']=='POST'
 			var timePopup = setTimeout(function(){
 				window.parent.boss.removeClass('modal_dialog', 'active');
 				window.parent.boss.ajax.load('/app/task/view_task/?pk=<?php echo $rs["id_project"];?>', '#app_pane_body');
-				window.parent.boss.modalWindow({'pk':'<?php echo $rsItem["id_project_task_items"]; ?>','title':'<?php echo $rsItem["title"]; ?>', 'content': '<?php echo $rsItem["comment"]; ?>'});
 			}, 100);
-
+			window.parent.boss.ajax.load('/app/task/view_item/?pk=<?php echo $rsItem["id_project_task_items"]; ?>;', '#modal_window', 'active');
 		</script>
 		<?php
 	}

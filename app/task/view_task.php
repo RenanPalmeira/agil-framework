@@ -2,6 +2,7 @@
 	require_once 'init.php';
 
 	use Agil\View\View as View;
+
 	
 	$request = View::route($_GET);
 	$pk = $request['pk'];
@@ -31,7 +32,7 @@
 					$i=1;
 					foreach ($tasks as $index => $task) {
 					?>
-					<div class="board-list">
+					<div id="<?php echo $task['id_project_task']; ?>" class="board-list">
 						<div class="board-list-content fancy-scrollbar btn-<?php echo $task['color'];?>">
 							<div class="board-list-title">
 								<div class="col-9 pull-left text-left"><?php echo mb_strimwidth($task['title'], 0, 15, "...");?></div>
@@ -55,21 +56,22 @@
 								$model->fields = $fields;
 								$items = $model->get($query);
 
-								foreach ($items as $item){
-								
-									if(ctype_upper($item['comment']))
-										$comment = mb_strimwidth($item['comment'], 0, 229, "..."); 
-									else
-										$comment = mb_strimwidth($item['comment'], 0, 229, "...")
-								?>
-								<div class="card" onclick="boss.modalWindow({'pk':'<?php echo $item['id_project_task_items']; ?>', pk2: '<?php echo $task['id_project']; ?>','title':'<?php echo $item['title']; ?>', 'content': '<?php echo $comment; ?>'});">
-									<div class="card-content">
-										<div class="card-title">
-											<?php echo $item['title']; ?>
+								foreach ($items as $item){			
+									if(ctype_upper($item['comment'])){
+										$comment = mb_strimwidth($item['comment'], 0, 150, "..."); 
+									}
+									else{
+										$comment = mb_strimwidth($item['comment'], 0, 150, "...");
+									}
+									?>
+									<div class="card" onclick="$('#modal_window').empty(); boss.ajax.load('/app/task/view_item/?pk=<?php echo $item['id_project_task_items']; ?>', '#modal_window', 'active');">
+										<div class="card-content">
+											<div class="card-title">
+												<?php echo $item['title']; ?>
+											</div>
 										</div>
 									</div>
-								</div>
-								<?php
+									<?php
 								}
 								?>
 							</div>
@@ -106,11 +108,15 @@
 		$(".board-surface").sortable({
 			axis: "x",
 			revert: true,
-			start: function(event, ui){
-				ui.item.css({"transform": "rotateZ(-3deg)"});	
+			start: function(event, ui){ 
+				ui.item.css({"transform": "rotateZ(-3deg)"});
+				ui.item.startPos = ui.item.index();	
 			},
 			stop: function(event, ui){
 				ui.item.css({"transform": "rotateZ(0deg)"});
+				/*console.log("Start position: " + ui.item.startPos);
+				console.log("New position: " + ui.item.index());
+				console.log("Id: " + ui.item.attr("id"));*/
 			}
 		});
 		$(".board-list").disableSelection();
@@ -121,105 +127,3 @@
 		}
 	});
 </script>
-<!--<?php
-	//require_once 'init.php';
-
-	//use Agil\View\View as View;
-	
-	//$request = View::route($_GET);
-?>
-<div class="app-pane">
-	<div class="app-pane-header">
-		<div class="col-6 pull-left">
-			<div class="btn-group">
-				<a class="btn btn-primary" onclick="boss.ajax.load('/app/task/view_task/?pk=<?php echo $request['pk'];?>', '#app_conteiner');">Projeto</a>
-				<a class="btn" onclick="boss.ajax.load('/app/task/view_my_task/', '#app_pane_body');">Minhas tarefas</a>
-				<a class="btn" onclick="boss.ajax.load('/app/team/view_team/', '#app_pane_body');">Equipes</a>
-				<a class="btn" onclick="boss.ajax.load('/app/team/view_task_member/', '#app_pane_body');">Colaboradores</a>
-			</div>
-		</div>
-		<div class="col-6 pull-left text-right">
-			<div class="btn-group">
-				<button class="btn btn-primary" onclick="boss.ajax.load('/app/task/view_task/?pk=<?php echo $request['pk'];?>', '#app_conteiner');"><img src="/static/img/icons/graphic.png" width="32px"></button>
-				<button class="btn" onclick="boss.ajax.load('/app/graph/view_graph/', '#app_conteiner');"><img src="/static/img/icons/share.png" width="16px"></button>
-				<button class="btn" onclick="boss.ajax.load('/app/project/form_config/?pk=<?php echo $request['pk'];?>', '#app_pane_body');"><img src="/static/img/icons/tools.png" width="20px"></button>
-			</div>
-		</div>
-	</div>
-	<div id="app_pane_body" class="app-pane-body">
-		<div class="board-wrapper">
-			<div class="board-surface fancy-scrollbar">
-				<div class="board-list">
-						<div class="board-list-content fancy-scrollbar">
-						<div class="board-list-title">
-							<div class="col-9 pull-left text-left">A Fazer</div>
-							<div class="col-3 pull-left text-right">
-								<img src="/static/img/icons/plus_black.png" onclick="boss.ajax.load('/app/project/form_create/', '#modal_dialog', 'active');" onmouseover="boss.addClass('info_task_1', 'active');" onmouseout="boss.removeClass('info_task_1', 'active');" width="20px" class="img-effect">
-							</div>
-							<div id="info_task_1" class="popover left fade-popover" style="left:78px; width:50%;">
-								<div class="arrow"></div>
-								<p class="text-white no-bold">Adicionar Tarefa</p>
-							</div>
-						</div>
-						<div class="card-group culmun">
-							<div class="card">
-								<div class="card-content">
-									<div class="card-title">
-										title
-									</div>
-									<div class="card-badges-left">
-										<div class="col-3 pull-left text-right">
-											<img src="/static/img/icons/arrow_black.png" onclick="boss.ajax.load('/app/project/form_create/', '#modal_dialog', 'active');" onmouseover="boss.addClass('info_move_1', 'active');" onmouseout="boss.removeClass('info_move_1', 'active');" width="20px" class="img-effect">
-										</div>
-										<div id="info_move_1" class="popover right fade-popover text-center" style="left:40px; top:50px; width:50%;">
-											<div class="arrow"></div>
-											<p class="text-white no-bold">Mover cartão</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="no-board-list board-list-add text-center" onclick="boss.ajax.load('/app/project/form_create/', '#modal_dialog', 'active');">
-					<h6 class="font-white bold">Adicionar uma lista</h6>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<script type="text/javascript">
-	$(function(){
-		$(".btn-group .btn").on('click', function(){
-			$(".btn-group .btn").removeClass('btn-primary');
-			$(this).addClass("btn-primary");
-		});
-		$(".culmun").sortable({
-			axis: "y",
-			start: function(event, ui){
-				ui.item.css({"transform": "rotateZ(-3deg)"});
-			},
-			stop: function(event, ui){
-				ui.item.css({"transform": "rotateZ(0deg)"});
-			}
-		});
-		$(".card").disableSelection();
-
-		$(".board-surface").sortable({
-			axis: "x",
-			revert: true,
-			start: function(event, ui){
-				ui.item.css({"transform": "rotateZ(-3deg)"});	
-			},
-			stop: function(event, ui){
-				ui.item.css({"transform": "rotateZ(0deg)"});
-			}
-		});
-		$(".board-list").disableSelection();
-
-		if(boss.isMobile()){
-			$('#btn_group_options').css({'width': '100%!important'});
-			$('#btn_group_icons').addClass('mobile-hidden');
-		}
-	});
-</script>//-->

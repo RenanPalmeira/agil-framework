@@ -22,25 +22,36 @@
 					</div>
 								
 					<div class="form-group">
-						<input id="enviar" type="submit" class="btn btn-block btn-success" value="Enviar"/>
+						<button type="submit" onclick="OnSubmitForm();" class="btn btn-block btn-success" value="Enviar" style="width:105%!important;">
+							Enviar
+						</button>
 					</div>
 				</form>
-				<div id="alert" class="alert alert-dismissable hidden" style="width: 96%!important;">
-					<button class="close">X</button>
-					<h4 id="alert_message"></h4>
-				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
-	$(function(){
-		$(".alert .close").on('click', function(e){
-			e.preventDefault();
-			$(".alert").each(function(index, el){
-				if(el.className.indexOf('hidden'))
-					el.classList.add('hidden')
-			});
-		});
+function OnSubmitForm(){
+	var els = document.getElementsByTagName("input");
+	var arr = [].slice.call(els);
+
+	arr.forEach(function (el){
+		if(el.value!="" && document.getElementById("message").value!=""){
+			el.value="";
+			isError = false;
+		}
+		else{
+			isError = true;
+		}
 	});
+
+	if(isError){
+		boss.popup('Error', 'Por favor, preencha corretamente todos os campo!');
+	}
+	else{
+		boss.popup('Sucesso', 'Sua mensagem foi enviada com sucesso!');
+	}
+	document.getElementById("message").value="";
+}
 </script>

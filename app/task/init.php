@@ -7,6 +7,8 @@
 	use Agil\Model\Import as Import;
 	
 	Import::get('project', __FILE__);
+	Import::get('account', __FILE__);
+
 	Session::start();
 
 	if(!Session::exist('logado') || (bool)Session::exist('logado')==false) {

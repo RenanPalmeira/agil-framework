@@ -1,5 +1,4 @@
 <?php
-	date_default_timezone_set('America/Sao_Paulo');
 	require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'autoload.php');
 	if(file_exists('model.php'))
 		require_once('model.php');
@@ -9,6 +8,7 @@
 	
 	Import::get('account', __FILE__);
 	Import::get('project', __FILE__);
+	Import::get('task', __FILE__);
 	Import::get('notification', __FILE__);
 	
 	Session::start();

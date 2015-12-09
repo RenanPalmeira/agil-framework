@@ -8,47 +8,16 @@
 			<div id="popup" class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button class="close" onclick="boss.removeClass('popup', 'active')">x</button>
+						<button class="close" onclick="boss.popup()">x</button>
 						<h3 id="popup-title" class="modal-title font-open-sans"></h3>
 					</div>
 					<div id="popup-content" style="padding: 10px;"></div>
 				</div>
 			</div>
-			<div id="modal_dialog" class="modal-dialog"></div>
-			<<div id="modal_window" class="modal-window">
-				<div class="window">
-					<button class="icon-close-window" onclick="boss.removeClass('modal_window', 'active')"></button>
-					<div class="window-header">
-						<h2 id="window_title"></h2>
-					</div>
-					<div class="window-content">
-						<div class="container">
-							<div class="col-8 pull-left">
-								<div id="window_content" class="col-12 pull-left" style="padding-bottom: 8px; margin-bottom:10px; border-bottom:1px solid #D6DADC;">
-								</div>
-								<div id="window_members" class="col-12 pull-left">
-								</div>
-							</div>
-							<div class="col-3 pull-right text-center">
-								<input type="hidden" id="window_pk" value="0">
-								<ul class="list-group">
-									<li class="list-group-title bg-blue-light text-white title">
-										Opções												
-									</li>
-									<li id="window_check" class="list-group-item list-group-hover">
-										<img src="/static/img/icons/check_black.png" width="25px" style="position:absolute; left:30px;">&nbsp;&nbsp;&nbsp;&nbsp;Concluido
-									</li>
-									<li id="window_move" class="list-group-item list-group-hover">
-										<img src="/static/img/icons/arrow_black.png" width="20px" style="position:absolute; left:30px;">Mover
-									</li>
-									<li id="window_edit" class="list-group-item list-group-hover"	>
-										<img src="/static/img/icons/edit_black.png" width="20px" style="position:absolute; left:30px;">Ediar
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div id="modal_dialog" class="modal-dialog">
+				
+			</div>
+			<div id="modal_window" class="modal-window">
 			</div>
 			<div class="app-wrapper">
 				<div id="navbar" class="navbar navbar-vertical navbar-dark fixed-left font-white">
@@ -78,7 +47,7 @@
 									<img src="/static/img/icons/out.png" width="40px" style="margin-left:10px; margin-top:10px;">
 									<span>Sair</span>
 								</li>
-								<li class="link" onclick="">
+								<li class="link" onclick="boss.title('Ajuda');boss.ajax.load('/app/help/form_help/', '#app_conteiner');">
 									<img src="/static/img/icons/help.png" width="40px" style="margin-left:10px; margin-top:10px;">
 									<span>Ajuda</span>
 								</li>
@@ -97,7 +66,7 @@
 					</div>
 					<div class="nav">
 						<div class="pull-left" onclick="boss.title('Perfil');boss.ajax.load('/app/user/view_profile/', '#app_conteiner');" style="height:40px;">
-							<img src="/static/img/icons/user.png" class="pull-left" style="width:30px; margin:4px 2px;">
+							<img src="/static/img/icons/user.png" class="pull-left" style="width:30px; margin:4px 8px; border-radius: 4px;">
 							<p title="Seu Nome" class="font-lato font-white pull-left title" style="margin-top:10px;">
 								<?php echo $name; ?>
 							</p>
@@ -121,6 +90,7 @@
 		</body>
 		<script type="text/javascript" src="/static/js/main.js"></script>
 		<script type="text/javascript">
+			boss.bookmark.remove('comment_loadplace');
 			function lambda(){
 				boss.title('Área de trabalho');
 				if(boss.bookmark.get('tab'))
@@ -132,9 +102,16 @@
 				boss.ajax.load("/app/user/view_overview/", "#app_conteiner");
 			});
 			boss.reload('/app/notification/reload_notify.php', function(data){
-				if(parseInt(data) && parseInt(data)>0){
+				if(data.ajax) {
+					var comment = data.ajax;
+					if(comment.url && comment.place){
+						boss.ajax.load(comment.url, comment.place);
+					}
+				}
+				var count = data.count;
+				if(parseInt(count) && parseInt(count)>0){
 					$("#notify").addClass("active");
-					$("#notify-num").html(data);
+					$("#notify-num").html(count);
 				}
 				else{
 					$("#notify").removeClass("active");

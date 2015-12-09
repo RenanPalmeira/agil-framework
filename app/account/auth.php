@@ -11,6 +11,7 @@ $request = View::route($_POST);
 if($request['METHOD']=='POST' 
 	&& !empty($request['username'])
 	&& !empty($request['password'])) {
+
 	$username = $request['username'];
 	$password = md5($request['password']);
 	
@@ -25,9 +26,12 @@ if($request['METHOD']=='POST'
 	$rs = $login->get($sql);
 	$count = $login->rows();
 
-	
 	if($count==0) {
-		echo "Ops!";
+		?>
+		<script>
+			window.parent.boss.popup('Error', 'Usuário ou senha incorretos!');
+		</script>
+		<?php
 	}
 	else if ($count==1) {
 		$sql = array(
@@ -40,10 +44,12 @@ if($request['METHOD']=='POST'
 		$countMember = $member->rows();
 
 		$rs = array_merge($rsMember[0], $rs[0]);
+
 		Session::set('logado', $rs);
 		?>
 		<script>
 			window.parent.location.href='/';
+			window.parent.iframesubmit.src='';
 		</script>
 		<?php
 	}
@@ -53,8 +59,11 @@ if($request['METHOD']=='POST'
 }
 else {
 	?>
+
 	<script>
 		window.parent.location.href='/';
+		window.parent.iframesubmit.src='';
+		window.parent.boss.popup('Error', 'Preencha todos os campos!');
 	</script>
 	<?php
 }

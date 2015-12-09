@@ -10,8 +10,7 @@ class Member extends Model {
 }
 
 class MemberImage extends Model {
-	// public $table = 'member_image';
-	public $fields = array('id_member', 'src', 'name');
+	public $fields = array('id_member_image', 'id_member', 'src', 'name', 'mime_type');
 	public $auto_fields = array('create_date', 'update_date', 'status');
 }
 

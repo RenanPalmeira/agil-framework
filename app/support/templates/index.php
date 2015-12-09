@@ -29,7 +29,7 @@
 	</div>
 </div>
 <div class="col-12">
-	<div class="col-9 pull-left">
+	<div class="col-9 pull-center">
 		<div class="container">
 			<div class="col-12"><h2 class="font-lato text-primary">Planos de<span class="font-open-sans bold"> Suporte</span></h2>
 				<p class="font-lato text-dark text-justify paragraph">Suporte oferecido aos usuários com técnicos preparados à sua disposição, para solucionar problemas e sanar dúvidas relacionadas á utilização das ferramentas do sistema.</p>
@@ -39,9 +39,9 @@
 				<h3 class="font-lato text-primary text-center"><span class="font-open-sans">Conheça os tipos de</span> Suporte :</h3>
 				<table class="table table-striped table-border table-responsive">
 					<thead>
-						<th class="text-center"><a id="link_default" class="h4 font-open-sans text-center text-black bold">Padrão</a></th>
-						<th class="text-center"><a id="link_premium" class="h4 font-lato text-danger bold">Premium</a></th>
-						<th class="text-center"><a id="link_business" class="h4 font-lato text-success bold">Empresarial</a></th>
+						<th class="text-center"><a id="link_default" class="h4 font-open-sans text-center text-black bold" style="cursor:pointer;">Padrão</a></th>
+						<th class="text-center"><a id="link_premium" class="h4 font-lato text-danger bold" style="cursor:pointer;">Premium</a></th>
+						<th class="text-center"><a id="link_business" class="h4 font-lato text-success bold" style="cursor:pointer;">Empresarial</a></th>
 					</thead>
 					<tbody>
 						<tr>
@@ -102,23 +102,6 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
-	</div>
-	<div class="col-3 pull-right">
-		<div class="container">
-			<ul class="list-group">
-				<li class="list-group-title bg-azure-light text-white">
-					Noticias
-				</li>
-				<li class="list-group-item list-group-hover">
-					<span class="badge">1</span>
-					Programação
-				</li>
-				<li class="list-group-item list-group-hover">
-					<span class="badge">1</span>
-					Design
-				</li>
-			</ul>
 		</div>
 	</div>
 </div>

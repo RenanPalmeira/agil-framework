@@ -12,23 +12,6 @@
 			<p class="font-lato text-justify paragraph bleed-bottom">A tecFalcon utilização da metodologia ágil, onde a criação gira em torno de um processo que efetiva, com excelência e agilidade, o produto final. Esta metodologia possui fundamentos organizacionais, que tem como base a execução das etapas do desenvolvimento diversas vezes, até que se tenha atingido o objetivo solicitado, além de cobrar a comunicação entre os responsáveis de cada produção, para que haja coesão de ideias no produto por inteiro.</p>
 		</div>
 	</div>
-	<div class="col-3 pull-right">
-		<div class="container">
-			<ul class="list-group">
-				<li class="list-group-title bg-azure-light text-white">
-					Noticias
-				</li>
-				<li class="list-group-item list-group-hover" onclick="location.href='/blog/#tabs-1'">
-					<span class="badge">1</span>
-					Programação
-				</li>
-				<li class="list-group-item list-group-hover" onclick="location.href='/blog/#tabs-2'">
-					<span class="badge">1</span>
-					Design
-				</li>
-			</ul>
-		</div>
-	</div>
 </div>
 </body>
 <script type="text/javascript" src="/static/js/other-apge.js"></script>

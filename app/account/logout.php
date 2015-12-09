@@ -1,13 +1,8 @@
 <?php
 
-require_once 'init.php';
-
-use Agil\Session\Session as Session;
-
-Session::start();
-Session::clear('logado');
-Session::destroy();
-
+session_start();
+unset($_SESSION['logado']);
+session_destroy();
 ?>
 <script>
 	window.parent.location.href='/';

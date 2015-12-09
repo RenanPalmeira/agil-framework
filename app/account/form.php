@@ -18,7 +18,7 @@
 							<div class="col-12">
 								<input name="name" class="input-requered" placeholder="Nome" type="text" required>
 								<input name="email" class="input-requered" placeholder="Email" type="email" required>
-								<input name="login" class="input-requered" placeholder="Login" type="text" required>
+								<input name="login" class="input-requered" placeholder="Nome de usuário" type="text" required>
 								<input name="password" class="input-requered" placeholder="Senha" type="password" required>
 								<input name="re_password" class="input-requered" placeholder="Confirmação de senha" type="password" required>
 							</div>

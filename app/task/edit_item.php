@@ -106,7 +106,7 @@
 			var timePopup = setTimeout(function(){
 				window.parent.boss.removeClass('modal_dialog', 'active');
 			}, 100);
-			window.parent.boss.popup("Erro ao atualizar tarefa.");
+			window.parent.boss.popup("Erro ao atualizar item.");
 		</script>
 		<?php
 	}
