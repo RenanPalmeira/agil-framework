@@ -20,8 +20,11 @@
 		<?php
 			if(count($rs)>0) {
 				foreach ($rs as $index => $notification) {
+					$url = '/app/notification/view_notification_body/?pk='.$notification['id_notification_granttype'];
+					if($notification['typing']==2 && $notification['status']==1) 
+						$url .= '&b=false';
 					?>
-						<tr style="cursor: pointer;" <?php if($notification['typing']==1 && $notification['status']==1): ?>onclick="boss.ajax.load('/app/notification/view_notification_body/?pk=<?php echo $notification['id_notification_granttype']?>', '#modal_dialog', 'active-lg');"<?php endif; ?>>
+						<tr style="cursor: pointer;" onclick="boss.ajax.load('<?php echo $url;?>', '#modal_dialog', 'active-lg');">
 							<td>
 								<div class="col-12">
 									<div class="col-1 pull-left">

@@ -29,8 +29,3 @@
 		</div>
 	</form>
 </div>
-<script type="text/javascript">
-	/*$('#form').ajaxForm(function() { 
-	    alert("Thank you for your comment!"); 
-	}); */
-</script>

@@ -6,6 +6,10 @@
 	$request = View::route($_GET);
 	$pk = $request['pk'];
 
+	$button = null;
+	if(array_key_exists('b', $request))
+		$button = $request['b'];
+	
 	$sql = array(
 		"id_notification_granttype" => $pk
 	);
@@ -14,7 +18,7 @@
 	$model->fields = array('status'=>2);
 	$model->update($sql);
 
-	$model->fields = array('id_notification_granttype', 'title', 'body', 'id_sender');
+	$model->fields = array('id_notification_granttype', 'title', 'body', 'id_sender', 'id_receiver');
 	$count = $model->count($sql);
 
 	if($count==1) {
@@ -41,12 +45,14 @@
 						<div class="form-group" id="error"></div>
 					</div>
 				</div>
-				<div class="modal-footer">
-					<input type="hidden" name="pk" value="<?php echo $rs['id_notification_granttype']?>"/>
-					<input type="hidden" name="sender" value="<?php echo $rs['id_sender']?>"/>
-					<input name="accept" type="submit" class="btn btn-success" value="Aceitar">
-					<input name="recuse" type="submit" class="btn btn-danger" value="Recusar">
-				</div>
+				<?php if(empty($button)): ?>
+					<div class="modal-footer">
+						<input type="hidden" name="pk" value="<?php echo $rs['id_receiver']?>"/>
+						<input type="hidden" name="sender" value="<?php echo $rs['id_sender']?>"/>
+						<input name="accept" type="submit" class="btn btn-success" value="Aceitar">
+						<input name="recuse" type="submit" class="btn btn-danger" value="Recusar">
+					</div>
+				<?php endif; ?>
 			</form>
 		</div>
 		<script type="text/javascript">

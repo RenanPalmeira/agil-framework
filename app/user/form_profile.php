@@ -4,6 +4,15 @@
 	use Agil\Session\Session as Session;
 
 	$logado = Session::get('logado');
+
+	$sql = array(
+		'name' 	 => $logado['name'],
+		'status' => 1 
+	);
+	$member = new Member();
+	$member->fields = array('id_member');
+	$rsMember = $member->get($sql);
+	$rsMember = $rsMember[0];
 ?>
 <div class="app-pane">
 	<div class="app-pane-header">
@@ -27,8 +36,7 @@
 					</div>
 					<div class="form-group">
 						<label>Alterar foto</label>
-						<span class="form-control btn btn-file">
-							<input name="name" type="file" accept="image" placeholder="Adicionar foto" class="form-control">
+						<span class="form-control btn btn-file" onclick="boss.ajax.load('/app/user/form_user_image/?pk=<?php echo $logado['id_member'];?>', '#modal_dialog', 'active');">
 							<span>Alterar foto</span>
 						</span>
 					</div>

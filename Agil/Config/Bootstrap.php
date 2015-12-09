@@ -37,7 +37,7 @@ return array(
 			'HOST'      => 'localhost',
 			'DATABASE'  => 'tecfalcon',
 			'USER'      => 'root',
-			'PASS'      => '',
+			'PASS'      => 'frappe',
 			'CHARSET'   => 'utf8',
 		),
 

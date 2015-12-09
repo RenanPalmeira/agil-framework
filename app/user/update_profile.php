@@ -42,7 +42,10 @@ if($request['METHOD']=='POST'
 		
 		?>
 		<script>
-			window.parent.boss.ajax.load('/app/user/form_profile/', '#app_conteiner');
+			var timePopup = setTimeout(function(){
+				window.parent.boss.ajax.load('/app/user/form_profile/', '#app_conteiner');
+			}, 100);
+			window.parent.boss.popup("Perfil editado com sucesso.");
 		</script>
 		<?php
 	} 

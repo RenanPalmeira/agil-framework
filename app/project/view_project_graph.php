@@ -6,17 +6,30 @@
 	
 	$logado = Session::get('logado');
 	$request = View::route($_GET);
-	
+	$pk = $request['pk'];
+
 	$model = new Project();
 	$admin = $model->is_admin($request['pk'], $logado['id_member']);
+
+	$sql = array(
+		'id_project' => $pk,
+		'status'	 => 1
+	);
+
+	$project = null;
+	$fields = array('id_project', 'title');
+	$model->fields = $fields;
+	$projects = $model->get($sql);
+	$count = $model->count($sql);
+	$project = $projects[0];
 ?>
 <div class="app-pane">
 	<div class="app-pane-header">
 		<div class="col-6 pull-left">
 			<div id="btn_group_options" class="btn-group">
 				<a class="btn btn-primary" onclick="boss.bookmark.remove('tab_project_<?php echo $request['pk'];?>');boss.ajax.load('/app/project/view_project_graph/?pk=<?php echo $request['pk'];?>', '#app_conteiner');">Projeto</a>
-				<a class="btn" onclick="boss.bookmark.set('tab_project_<?php echo $request['pk'];?>', '/app/task/view_my_task/?pk=<?php echo $request['pk'];?>');boss.ajax.load('/app/task/view_my_task/', '#app_pane_body');">Minhas tarefas</a>
-				<a class="btn" onclick="boss.bookmark.set('tab_project_<?php echo $request['pk'];?>', '/app/team/view_team/?pk=<?php echo $request['pk'];?>');boss.ajax.load('/app/team/view_team/', '#app_pane_body');">Equipe</a>
+				<a class="btn" onclick="boss.bookmark.set('tab_project_<?php echo $request['pk'];?>', '/app/task/view_my_task/?pk=<?php echo $request['pk'];?>');boss.ajax.load('/app/task/view_my_task/?pk=<?php echo $request['pk'];?>', '#app_pane_body');">Minhas tarefas</a>
+				<a class="btn" onclick="boss.bookmark.set('tab_project_<?php echo $request['pk'];?>', '/app/team/view_team/?pk=<?php echo $request['pk'];?>');boss.ajax.load('/app/team/view_team/?pk=<?php echo $request['pk'];?>', '#app_pane_body');">Equipe</a>
 				<?php if($admin): ?>
 					<a class="btn" onclick="boss.bookmark.set('tab_project_<?php echo $request['pk'];?>', '/app/team/view_task_member/?pk=<?php echo $request['pk'];?>');boss.ajax.load('/app/team/view_task_member/?pk=<?php echo $request['pk'];?>', '#app_pane_body');">Colaboradores</a>
 				<?php endif; ?>
@@ -36,10 +49,26 @@
 		<div class="col-12 pull-center">
 			<div class="card">
 				<div class="card-content">
-					
-				</div>
-				<div class="card-action">
-					<h3 class="font-open-sans">Estatística</h3>
+					<div class="col-4 pull-left bleed-top bleed-bottom">
+						<?php
+							if($count>0) {
+								$image = new ProjectImage();
+								foreach ($projects as $project) {
+									$i = $image->get(array('id_project'=>$project['id_project']));
+									$img = "/static/img/icons/cubo_black.png";
+									if(count($i)>0) {
+										if(array_key_exists('src', $i[0])) {
+											$img = 'media/'.str_replace("\\", "/", $i[0]['src']);
+										}
+									}
+								}
+							}
+						?>
+						<img src="<?php echo $img;?>"  width="200px" heigth="177px" style="border-radius:4px;">
+					</div>
+					<div class="col-8 pull-left bleed-top bleed-bottom">
+						<h3 class="modal-title font-open-sans bleed-top">Olá <span class="title"><?php echo $logado['name'];?></span>, bem-vindo(a) ao <b class="title"><?php echo $project['title']?></b></h3>
+					</div>
 				</div>
 			</div>
 		</div>

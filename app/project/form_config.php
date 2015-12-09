@@ -53,13 +53,13 @@
 							<button type="button" title="Administrador" class="btn btn-success btn-disabled">
 								<?php
 									if($rsImage['src']){
-										$userImage = $rsImage['src'];
+										$userImage = 'media/'.$rsImage['src'];
 									}
 									else{
 										$userImage = '/static/img/icons/user.png';
 									}
 								?>
-								<img src="<?php echo $userImage?>" style="width: 25px;height: 25px;float: left;padding-right: 10px;"/><span class="title" style="line-height: 25px;"><?php echo $logado['name'];?></span>
+								<img src="<?php echo $userImage?>" class="img-circle" style="width: 25px;height: 25px;float: left;padding-right: 10px;"/><span class="title" style="line-height: 25px;"><?php echo $logado['name'];?></span>
 							</button>
 						</div>
 					</div>

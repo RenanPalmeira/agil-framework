@@ -6,6 +6,15 @@
 	$logado = Session::get('logado');
 	$name = explode(" ", $logado['name']);
 	$name = $name[0];
+
+	$image = new MemberImage();
+	$i = $image->get(array('id_member'=>$logado['id_member']));
+	$img = "/static/img/icons/user_black.png";
+	if(count($i)>0) {
+		if(array_key_exists('src', $i[0])) {
+			$img = 'media/'.str_replace("\\", "/", $i[0]['src']);
+		}
+	}
 ?>
 <div class="app-pane">
 	<div class="app-pane-header">
@@ -13,9 +22,9 @@
 	</div>
 	<div class="app-pane-body">
 		<div class="col-4 pull-left text-center">
-			<div class="col-12" style="margin-top: 15%;">
+			<div class="col-12">
 				<div class="col-12 bleed-top">
-					<img src="/static/img/icons/user_black.png" width="100px" class="img-circle">
+					<img src="<?php echo $img; ?>" width="150px" class="img-circle img-border">
 				</div>
 				<div class="col-12">
 					<h4 class="font-lato font-black title">

@@ -7,7 +7,7 @@
 	$id_admin = $logado['id_member'];
 
 	$project = new Project();
-	$project->fields = array('id_project', 'title', 'slug');
+	$project->fields = array('id_project', 'id_admin', 'title', 'slug');
 	$rs = $project->get(array('id_admin'=>$id_admin, 'status'=>'1'));
 
 	$projectMember = new ProjectMemberSet();
@@ -21,7 +21,7 @@
 <div class="app-pane">
 	<div class="app-pane-header">
 		<div class="col-6 pull-left">
-			<div id="btn_group" class="btn-group">
+			<div class="btn-group">
 				<a href="javascript: void(0);" class="btn" onclick="boss.bookmark.set('tab', '/app/user/view_overview/');boss.ajax.load('/app/user/view_overview/', '#app_conteiner');">Visão Geral</a>
 				<a href="javascript: void(0);" class="btn btn-primary" onclick="boss.bookmark.set('tab', '/app/project/view_project/');boss.ajax.load('/app/project/view_project/', '#app_conteiner');">Projetos</a>
 			</div>
@@ -34,7 +34,7 @@
 			</div>
 			<div class="col-6 pull-left mobile-hidden">
 				<form action="" method="post">
-					<input name="name" type="text" id="name" class="search form-control" placeholder="Pesquisar">
+					<input name="name" type="text" id="name" class="search form-control" placeholder="Pesquisar" autocomplete="off">
 				</form>
 			</div>
 		</div>
@@ -43,6 +43,7 @@
 		<div class="col-12">
 			<?php
 				$n = 1;
+				
 				if($rs) {
 					$image = new ProjectImage();
 					foreach ($rs as $project) {
@@ -67,11 +68,13 @@
 								</div>
 								<div class="card-action">
 									<h3 id="task_title_<?php echo $project['id_project'];?>" class="font-open-sans link title" onclick="lambda_project('<?php echo $project['id_project'];?>');"><?php echo mb_strimwidth($project['title'], 0, 10, "..."); ?></h3>
-									<span class="card-icon icon" onclick="boss.addClass('card_hidden_<?php echo $n; ?>', 'active')">
-										<i class="icon-dot"/>
-										<i class="icon-dot"/>
-										<i class="icon-dot"/>
-									</span>
+									<?php if($project['id_admin']==$logado['id_member']): ?>
+										<span class="card-icon icon" onclick="boss.addClass('card_hidden_<?php echo $n; ?>', 'active')">
+											<i class="icon-dot"/>
+											<i class="icon-dot"/>
+											<i class="icon-dot"/>
+										</span>
+									<?php endif; ?>
 								</div>
 								<div id="card_hidden_<?php echo $n; ?>" class="card-content-hidden">
 									<i class="icon icon-close" onclick="boss.removeClass('card_hidden_<?php echo $n; ?>', 'active')"></i>
