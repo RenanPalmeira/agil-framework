@@ -69,7 +69,7 @@
 		</div>
 		<div class="modal-footer">
 			<input type="submit" class="btn btn-success" value="Mover tarefa">
-			<input type="submit" class="btn btn-danger" value="Arquiva" onclick="$('#arquiva').attr('value', '1');">
+			<input type="submit" class="btn btn-danger" value="Arquivar" onclick="$('#arquiva').attr('value', '1');">
 		</div>
 	</form>
 </div>

@@ -150,7 +150,7 @@
 						<div class="form-group">
 							<div class="col-8 pull-left">
 								<input type="hidden" id="pk" name="pk" value="<?php echo $pk;?>">
-								<input name="comment" type="text" placeholder="Nome do projeto" class="form-control" autocomplete="off">
+								<input name="comment" type="text" placeholder="Escrever um comentário..." class="form-control" autocomplete="off">
 							</div>
 							<div class="col-3 pull-right">
 								<input type="submit" class="btn btn-success btn-block" value="Comentar">

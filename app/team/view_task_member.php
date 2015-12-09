@@ -33,7 +33,7 @@
 									<p class="font-lato bold">Data de início</p>
 								</div>
 								<div class="col-2 pull-left">
-									<p class="font-lato bold">Data de termino</p>
+									<p class="font-lato bold">Data de término</p>
 								</div>
 								<div class="col-2 pull-left">
 									<p class="font-lato bold">Nome</p>
